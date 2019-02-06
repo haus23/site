@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StateService } from '../../services/state.service';
 import { Championship } from '../../models/championship';
+import { Player } from '../../models/player';
 
 @Component({
   selector: 'ranking-standings',
@@ -10,11 +11,13 @@ import { Championship } from '../../models/championship';
 export class StandingsComponent implements OnInit {
 
   currentChampionship: Championship;
+  currentStandings: Player[];
 
   constructor(private state: StateService) { }
 
   ngOnInit() {
     this.state.currentChampionship$.subscribe( c => { this.currentChampionship = c; });
+    this.state.ranking$.subscribe( r => { this.currentStandings = r; });
   }
 
 }
