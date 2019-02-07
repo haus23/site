@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Championship } from '../models/championship';
-import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { StateService } from './state.service';
 
@@ -18,7 +17,9 @@ export class ChampionshipResolver implements Resolve<Championship> {
     const championships = await this.api.getChampionships();
     const current = championships[0];
 
+    this.state.setChampionships(championships);
     this.state.setCurrentChampionship(current);
+
     return current;
   }
 }

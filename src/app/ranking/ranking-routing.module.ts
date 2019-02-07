@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { StandingsComponent } from './components/standings/standings.component';
 import { ChampionshipResolver } from './services/championship.resolver';
+import { ShellComponent } from './components/shell/shell.component';
 
 const routes: Routes = [
   {
     path: 'tipprunde',
+    component: ShellComponent,
     resolve: {
       championship: ChampionshipResolver
     },
