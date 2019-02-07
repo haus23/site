@@ -1,2 +1,7 @@
 <h1>Tipprunde</h1>
+<ul>
+    <li *ngFor="let c of championships">
+        <a [routerLink]="[c.slug]">{{ c.name }}</a>
+    </li>
+</ul>
 <router-outlet></router-outlet>

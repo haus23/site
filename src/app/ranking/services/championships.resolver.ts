@@ -7,19 +7,22 @@ import { StateService } from './state.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ChampionshipResolver implements Resolve<Championship> {
+export class ChampionshipsResolver implements Resolve<Championship[]> {
 
   constructor(private api: ApiService, private state: StateService) {}
 
-  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):
-    Promise<Championship> {
+  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Championship[]> {
 
     const championships = await this.api.getChampionships();
-    const current = championships[0];
+
+    if (route.firstChild.paramMap.get('slug') === null) {
+
+    }
+    // const current = championships[0];
 
     this.state.setChampionships(championships);
-    this.state.setCurrentChampionship(current);
+    // this.state.setCurrentChampionship(current);
 
-    return current;
+    return championships;
   }
 }
