@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiHost: 'https://api.haus23.net/'
+  apiHost: 'https://api.haus23.net'
 };

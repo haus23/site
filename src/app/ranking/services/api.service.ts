@@ -9,7 +9,7 @@ import { Player } from '../models/player';
 })
 export class ApiService {
 
-  private baseUrl = environment.apiHost + 'ranking/';
+  private baseUrl = environment.apiHost + '/v1/ranking/';
 
   constructor(private http: HttpClient) { }
 
