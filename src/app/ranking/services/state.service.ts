@@ -1,41 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
+import { ApiService } from './api.service';
 import { Championship } from '../models/championship';
 import { Player } from '../models/player';
-import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StateService {
 
-  championships$: Observable<Championship[]>;
-  private championshipsSource = new ReplaySubject<Championship[]>(1);
+  private _championships: Championship[];
 
-  currentChampionship$: Observable<Championship>;
   private currentChampionshipSource = new ReplaySubject<Championship>(1);
+  currentChampionship$ = this.currentChampionshipSource.asObservable();
 
-  ranking$: Observable<Player[]>;
   private rankingSource = new ReplaySubject<Player[]>(1);
+  ranking$ = this.rankingSource.asObservable();
 
-  constructor(private api: ApiService) {
-    this.championships$ = this.championshipsSource.asObservable();
-    this.currentChampionship$ = this.currentChampionshipSource.asObservable();
-    this.ranking$ = this.rankingSource.asObservable();
+  constructor(private api: ApiService) {}
 
-    this.currentChampionship$.subscribe( async (c) => {
-      const players = await api.getPlayers(c.id);
-      this.rankingSource.next(players);
-    });
+  get championships() {
+    return this._championships;
   }
 
-  setChampionships(cs : Championship[]) {
-    this.championshipsSource.next(cs);
+  set championships(value : Championship[]) {
+    this._championships = value;
   }
 
-  getCurrentChampionship(slug?: string) {}
+  async loadChampionship(c: Championship) {
 
-  setCurrentChampionship(c: Championship) {
     this.currentChampionshipSource.next(c);
+
+    await Promise.all( [
+      this.api.getPlayers(c.id)
+    ]).then( results => {
+      this.rankingSource.next(results[0]);
+    });
+
+    return c;
   }
 }

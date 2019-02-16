@@ -8,12 +8,7 @@ import { Championship } from '../../models/championship';
 })
 export class ShellComponent implements OnInit {
 
-  championships: Championship[];
-
   constructor(private state: StateService) {
-    state.championships$.subscribe( cs => {
-      this.championships = cs;
-    });
   }
 
   ngOnInit() {

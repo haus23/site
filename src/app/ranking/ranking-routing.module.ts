@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StandingsComponent } from './components/standings/standings.component';
 import { ChampionshipsResolver } from './services/championships.resolver';
 import { ShellComponent } from './components/shell/shell.component';
-import { CurrentChampionshipResolver } from './services/current-championship.resolver';
+import { ChampionshipResolver } from './services/championship.resolver';
 
 const routes: Routes = [
   {
@@ -14,19 +14,12 @@ const routes: Routes = [
       championships: ChampionshipsResolver
     },
     children: [
-      { 
-        path: '', 
+      {
+        path: '',
         component: StandingsComponent,
         resolve: {
-          currentChampionship: CurrentChampionshipResolver
-        } 
-      },
-      { 
-        path: ':slug', 
-        component: StandingsComponent,
-        resolve: {
-          currentChampionship: CurrentChampionshipResolver
-        } 
+          currentChampionship: ChampionshipResolver
+        }
       }
     ]
   }

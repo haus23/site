@@ -9,12 +9,12 @@ import { StateService } from './state.service';
 })
 export class ChampionshipsResolver implements Resolve<Championship[]> {
 
-  constructor(private api: ApiService, private state: StateService) {}
+  constructor(private api: ApiService, private appState: StateService) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Championship[]> {
 
     const championships = await this.api.getChampionships();
-    this.state.setChampionships(championships);
+    this.appState.championships = championships;
 
     return championships;
   }
