@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { StandingsComponent } from './components/standings/standings.component';
-import { ChampionshipsResolver } from './services/championships.resolver';
 import { ShellComponent } from './components/shell/shell.component';
 import { ChampionshipResolver } from './services/championship.resolver';
 
@@ -11,18 +10,16 @@ const routes: Routes = [
     path: 'tipprunde',
     component: ShellComponent,
     resolve: {
-      championships: ChampionshipsResolver
+      championship: ChampionshipResolver
     },
     children: [
       {
         path: '',
-        component: StandingsComponent,
-        resolve: {
-          currentChampionship: ChampionshipResolver
-        }
+        component: StandingsComponent
       }
     ]
-  }
+  },
+
 ];
 
 @NgModule({

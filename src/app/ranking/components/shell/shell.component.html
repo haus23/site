@@ -1,2 +1,46 @@
-<h1>Tipprunde</h1>
-<router-outlet></router-outlet>
+<clr-header class="header-7" id="ranking">
+    <div class="branding">
+        <a routerLink="/" class="nav-link">
+            <img class="logo" src="/assets/logo.png" alt="Logo">
+            <span class="title">Tipprunde</span>
+            <span class="responsive-title">{{ championship.name }}</span>
+        </a>
+    </div>
+    <div class="header-title">{{ championship.name }}</div>
+    <div class="header-actions">
+        <clr-dropdown>
+            <button class="nav-icon" clrDropdownTrigger>
+                <clr-icon shape="user"></clr-icon>
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                <a routerLink="/login" class="disabled" clrDropdownItem>Log in</a>
+            </clr-dropdown-menu>
+        </clr-dropdown>
+    </div>
+</clr-header>
+<nav class="subnav" [clr-nav-level]="1">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" routerLink="/tipprunde">Tabelle</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Spieler</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Tipps</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Spiele</a>
+        </li>
+    </ul>
+</nav>
+<div class="content-container">
+    <div class="content-area">
+        <div class="clr-row">
+            <div class="clr-col-12">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

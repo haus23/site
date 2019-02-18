@@ -10,14 +10,14 @@ import { Player } from '../../models/player';
 })
 export class StandingsComponent implements OnInit {
 
-  currentChampionship: Championship;
-  currentStandings: Player[];
+  championship: Championship;
+  standings: Player[];
 
   constructor(private state: StateService) { }
 
   ngOnInit() {
-    this.state.currentChampionship$.subscribe( c => { this.currentChampionship = c; });
-    this.state.ranking$.subscribe( r => { this.currentStandings = r; });
+    this.state.currentChampionship$.subscribe( c => { this.championship = c; });
+    this.state.ranking$.subscribe( r => { this.standings = r; });
   }
 
 }

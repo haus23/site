@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+
+.header-title {
+    flex-grow: 1;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: (2rem / 3);
+    padding: 0 1rem;
+}
+
+.header-actions, .branding {
+    flex: 0 1 auto;
+}
+
+.branding { 
+    img {
+        margin-right: 1em;
+    }
+    .responsive-title {
+        display: none;
+        font-size: (2rem / 3);
+    } 
+}
+    
+@media screen and (max-width: 768px) {
+
+    .branding {
+        padding: 0;
+
+        .title, img {
+            display: none !important;
+        }
+    } 
+
+    .open-hamburger-menu .branding {
+        .responsive-title {
+            display: inline;
+            color: #565656;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    .header-title {
+        padding: 0;
+    }
+}
+
+
