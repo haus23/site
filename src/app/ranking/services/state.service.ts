@@ -9,32 +9,21 @@ import { Player } from '../models/player';
 })
 export class StateService {
 
-  private _championships: Championship[];
+  championships: Championship[];
 
-  private currentChampionshipSource = new ReplaySubject<Championship>(1);
-  currentChampionship$ = this.currentChampionshipSource.asObservable();
-
-  private rankingSource = new ReplaySubject<Player[]>(1);
-  ranking$ = this.rankingSource.asObservable();
+  currentChampionship: Championship;
+  players: Player[];
 
   constructor(private api: ApiService) {}
 
-  get championships() {
-    return this._championships;
-  }
-
-  set championships(value : Championship[]) {
-    this._championships = value;
-  }
-
   async loadChampionship(c: Championship) {
 
-    this.currentChampionshipSource.next(c);
+   this.currentChampionship = c;
 
     await Promise.all( [
       this.api.getPlayers(c.id)
     ]).then( results => {
-      this.rankingSource.next(results[0]);
+      this.players = results[0];
     });
 
     return c;

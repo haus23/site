@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StandingsComponent } from './components/standings/standings.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { ChampionshipResolver } from './services/championship.resolver';
+import { PlayersComponent } from './components/players/players.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,15 @@ const routes: Routes = [
       {
         path: '',
         component: StandingsComponent
-      }
+      },
+      {
+        path: 'spieler',
+        component: PlayersComponent
+      },
+      {
+        path: 'spieler/:slug',
+        component: PlayersComponent
+      },
     ]
   },
 

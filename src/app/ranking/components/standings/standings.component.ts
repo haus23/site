@@ -16,8 +16,8 @@ export class StandingsComponent implements OnInit {
   constructor(private state: StateService) { }
 
   ngOnInit() {
-    this.state.currentChampionship$.subscribe( c => { this.championship = c; });
-    this.state.ranking$.subscribe( r => { this.standings = r; });
+    this.championship = this.state.currentChampionship;
+    this.standings = this.state.players;
   }
 
 }

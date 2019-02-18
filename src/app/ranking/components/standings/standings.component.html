@@ -15,7 +15,9 @@
         <tbody>
           <tr *ngFor="let r of standings; let ix = index">
             <td>{{ r.rank === ix + 1 ? r.rank : '' }}</td>
-            <td class="left">{{ r.name }}</td>
+            <td class="left">
+              <a [routerLink]="['spieler', r.slug]">{{ r.name }}</a>
+            </td>
             <td>{{ r.totalPoints }}</td>
           </tr>
         </tbody>

@@ -16,9 +16,7 @@ export class ShellComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state.currentChampionship$.subscribe(
-      c => { this.championship = c; }
-    );
+    this.championship = this.state.currentChampionship;
   }
 
 }

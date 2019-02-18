@@ -1,48 +1,28 @@
 
-.header-title {
-    flex-grow: 1;
-    height: 2.5rem;
-    line-height: 2.5rem;
-    font-size: (2rem / 3);
-    padding: 0 1rem;
+.branding .responsive-title {
+  display: none;
+  font-size: (2rem / 3);
 }
 
-.header-actions, .branding {
-    flex: 0 1 auto;
+.ranking {
+  .content-area .card:only-of-type {
+    margin-top: 0;
+  }
+
+  .sidenav .nav-item {
+    margin-bottom: 0.5rem;
+  }
 }
 
-.branding { 
-    img {
-        margin-right: 1em;
-    }
-    .responsive-title {
-        display: none;
-        font-size: (2rem / 3);
-    } 
-}
-    
 @media screen and (max-width: 768px) {
+  .main-container.open-hamburger-menu .branding .responsive-title {
+    display: inline;
+    color: #565656;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 
-    .branding {
-        padding: 0;
-
-        .title, img {
-            display: none !important;
-        }
-    } 
-
-    .open-hamburger-menu .branding {
-        .responsive-title {
-            display: inline;
-            color: #565656;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-    }
-
-    .header-title {
-        padding: 0;
-    }
+  .main-container.open-hamburger-menu .sidenav.clr-nav-level-1 {
+    padding-top: 2.5rem;
+  }
 }
-
-

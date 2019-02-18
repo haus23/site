@@ -1,4 +1,4 @@
-<clr-header class="header-7" id="ranking">
+<clr-header class="header-7">
     <div class="branding">
         <a routerLink="/" class="nav-link">
             <img class="logo" src="/assets/logo.png" alt="Logo">
@@ -19,23 +19,7 @@
         </clr-dropdown>
     </div>
 </clr-header>
-<nav class="subnav" [clr-nav-level]="1">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/tipprunde">Tabelle</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Spieler</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Tipps</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Spiele</a>
-        </li>
-    </ul>
-</nav>
-<div class="content-container">
+<div class="content-container ranking">
     <div class="content-area">
         <div class="clr-row">
             <div class="clr-col-12">
@@ -43,4 +27,24 @@
             </div>
         </div>
     </div>
+    <nav class="sidenav" [clr-nav-level]="1">
+      <section class="sidenav-content">
+        <section class="nav-group">
+          <ul class="nav-list">
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/tipprunde" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tabelle</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/tipprunde/spieler" routerLinkActive="active">Spieler</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Tipps</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Spiele</a>
+              </li>
+          </ul>
+        </section>
+      </section>
+    </nav>
 </div>
