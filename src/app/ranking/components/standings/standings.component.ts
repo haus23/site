@@ -5,8 +5,7 @@ import { Player } from '../../models/player';
 
 @Component({
   selector: 'ranking-standings',
-  templateUrl: './standings.component.html',
-  styles: []
+  templateUrl: './standings.component.html'
 })
 export class StandingsComponent implements OnInit {
 

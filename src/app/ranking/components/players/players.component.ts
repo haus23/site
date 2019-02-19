@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StateService } from '../../services/state.service';
 import { ActivatedRoute } from '@angular/router';
 import { Player } from '../../models/player';
+import { Round } from '../../models/round';
 
 @Component({
   selector: 'ranking-players',
@@ -10,6 +11,7 @@ import { Player } from '../../models/player';
 export class PlayersComponent implements OnInit {
 
   player: Player;
+  rounds: Round[];
 
   constructor(private appState: StateService, private route: ActivatedRoute) { }
 
@@ -21,6 +23,7 @@ export class PlayersComponent implements OnInit {
         this.player = this.appState.players.find( p => p.slug === params.slug );
       }
     });
+    this.rounds = this.appState.rounds;
   }
 
 }

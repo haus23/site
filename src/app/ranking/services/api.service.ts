@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Championship } from '../models/championship';
 import { Player } from '../models/player';
+import { Round } from '../models/round';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,11 @@ export class ApiService {
 
   async getPlayers(championshipId: number) {
     return this.http.get<Player[]>(this.baseUrl + 'players/' + championshipId)
+      .toPromise();
+  }
+
+  async getRounds(championshipId: number) {
+    return this.http.get<Round[]>(this.baseUrl + 'rounds/' + championshipId)
       .toPromise();
   }
 }

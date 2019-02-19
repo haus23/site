@@ -1,9 +1,11 @@
 <div class="card">
   <div class="card-block">
-    <div class="card-title">
-      {{ championship.completed ? 'Abschlusstabelle' : 'Aktuelle Tabelle' }}
-    </div>
     <div class="card-text">
+      <h4 class="stack-header">
+        <span class="stack-title">{{
+          championship.completed ? 'Abschlusstabelle' : 'Aktuelle Tabelle'
+        }}</span>
+      </h4>
       <table class="table table-noborder">
         <thead>
           <tr>
