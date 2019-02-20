@@ -10,10 +10,10 @@ const routes: Routes = [
   {
     path: 'tipprunde',
     component: ShellComponent,
-    /*
     resolve: {
       championship: ChampionshipResolver
     },
+    /*
     children: [
       {
         path: '',
