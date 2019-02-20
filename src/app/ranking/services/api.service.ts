@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Championship } from '../models/championship';
 import { Player } from '../models/player';
 import { Round } from '../models/round';
+import { Match } from '../models/match';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,11 @@ export class ApiService {
 
   async getRounds(championshipId: number) {
     return this.http.get<Round[]>(this.baseUrl + 'rounds/' + championshipId)
+      .toPromise();
+  }
+
+  async getMatches(championshipId: number) {
+    return this.http.get<Match[]>(this.baseUrl + 'matches/' + championshipId)
       .toPromise();
   }
 }

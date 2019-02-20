@@ -1,29 +1,21 @@
-<div class="card">
-  <div class="card-block">
-    <div class="card-text">
-      <h4 class="stack-header">
-        <span class="stack-title">{{
-          championship.completed ? 'Abschlusstabelle' : 'Aktuelle Tabelle'
-        }}</span>
-      </h4>
-      <table class="table table-noborder">
-        <thead>
-          <tr>
-            <th>Platz</th>
-            <th class="left">Name</th>
-            <th>Punkte</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let r of standings; let ix = index">
-            <td>{{ r.rank === ix + 1 ? r.rank : '' }}</td>
-            <td class="left">
-              <a [routerLink]="['spieler', r.slug]">{{ r.name }}</a>
-            </td>
-            <td>{{ r.totalPoints }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<h2 class="subtitle has-text-centered">
+  {{ championship.completed ? 'Abschlusstabelle' : 'Aktuelle Tabelle' }}
+</h2>
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th class="has-text-centered">Platz</th>
+      <th>Name</th>
+      <th class="has-text-centered">Punkte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of standings; let ix = index">
+      <td class="has-text-centered">{{ r.rank === ix + 1 ? r.rank : '' }}</td>
+      <td>
+        <a [routerLink]="['spieler', r.slug]">{{ r.name }}</a>
+      </td>
+      <td class="has-text-centered">{{ r.totalPoints }}</td>
+    </tr>
+  </tbody>
+</table>

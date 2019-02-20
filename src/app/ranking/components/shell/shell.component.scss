@@ -1,33 +1,8 @@
+.navbar-brand span {
+  margin-left: 1rem;
+}
 
-.header-title {
+.navbar-start {
   flex-grow: 1;
-  height: 2.5rem;
-  line-height: 2.5rem;
-  font-size: (2rem / 3);
-  padding: 0 2rem;
-}
-
-.header-actions, .branding {
-  flex: 0 1 auto;
-}
-
-.branding {
-  img {
-      margin-right: 1em;
-  }
-}
-
-@media screen and (max-width: 768px) {
-
-  .branding {
-      padding: 0;
-
-      .title, .logo {
-          display: none !important;
-      }
-  }
-
-  .header-title {
-      padding: 0;
-  }
+  justify-content: center;
 }

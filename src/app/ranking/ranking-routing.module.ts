@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StandingsComponent } from './components/standings/standings.component';
-import { ShellComponent } from './components/shell/shell.component';
 import { ChampionshipResolver } from './services/championship.resolver';
+
+import { ShellComponent } from './components/shell/shell.component';
+import { StandingsComponent } from './components/standings/standings.component';
+import { MatchesComponent } from './components/matches/matches.component';
 import { PlayersComponent } from './components/players/players.component';
 
 const routes: Routes = [
@@ -13,11 +15,18 @@ const routes: Routes = [
     resolve: {
       championship: ChampionshipResolver
     },
-    /*
     children: [
       {
         path: '',
         component: StandingsComponent
+      },
+      {
+        path: 'spiele',
+        component: MatchesComponent
+      },
+      {
+        path: 'spiele/runde/:nr',
+        component: MatchesComponent
       },
       {
         path: 'spieler',
@@ -26,11 +35,9 @@ const routes: Routes = [
       {
         path: 'spieler/:slug',
         component: PlayersComponent
-      },
+      }
     ]
-    */
-  },
-
+  }
 ];
 
 @NgModule({

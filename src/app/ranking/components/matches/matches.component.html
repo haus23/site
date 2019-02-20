@@ -1,0 +1,41 @@
+<div class="columns">
+  <div class="column is-one-quarter">
+      <aside class="menu">
+          <p class="menu-label">
+            Runden
+          </p>
+          <ul class="menu-list">
+            <li *ngFor="let r of rounds">
+              <a
+                [ngClass]="{ 'is-active': r.nr == roundNr }"
+                [routerLink]="['/tipprunde/spiele/runde', r.nr]"
+              >
+                Runde {{ r.nr }}
+              </a>
+            </li>
+          </ul>
+      </aside>
+  </div>
+  <div class="column">
+    <table class="table is-fullwidth">
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Liga</th>
+          <th>Paarung</th>
+          <th>Ergebnis</th>
+          <th>Punkte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let m of matches">
+          <td>{{ m.matchDay | date:'dd.MM.yy' }}</td>
+          <td>{{ m.league }}</td>
+          <td>{{ m.fixture }}</td>
+          <td>{{ m.result }}</td>
+          <td>{{ m.points }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
