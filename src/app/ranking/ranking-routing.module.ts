@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: 'tipprunde',
     component: ShellComponent,
+    /*
     resolve: {
       championship: ChampionshipResolver
     },
@@ -27,6 +28,7 @@ const routes: Routes = [
         component: PlayersComponent
       },
     ]
+    */
   },
 
 ];
