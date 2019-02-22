@@ -3,13 +3,13 @@
     <h2 class="subtitle">Tipps von {{ player.name }}</h2>
   </div>
   <div class="level-item is-narrow">
-    <button class="button">
+    <button class="button" (click)="playerModalOn = true">
       <fa-icon [icon]="playerCogIcon"></fa-icon>
     </button>
   </div>
 </div>
 
-<div class="modal">
+<div class="modal" [(appVisible)]="playerModalOn">
   <div class="modal-background"></div>
   <div class="modal-card">
     <header class="modal-card-head">
@@ -20,7 +20,7 @@
       <div class="menu">
         <ul class="menu-list">
           <li *ngFor="let p of allPlayers">
-            <a [routerLink]="['/tipprunde/spieler', p.slug]" [ngClass]="{ 'is-active': player.id === p.id }">{{ p.name }}</a>
+            <a (click)="playerModalOn = false" [routerLink]="['/tipprunde/spieler', p.slug]" [ngClass]="{ 'is-active': player.id === p.id }">{{ p.name }}</a>
           </li>
         </ul>
       </div>

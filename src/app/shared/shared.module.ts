@@ -3,9 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ModalDialogDirective } from './directives/modal-dialog.directive';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ModalDialogDirective
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -14,7 +17,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   exports: [
     CommonModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
+    ModalDialogDirective
   ]
 })
 export class SharedModule { }

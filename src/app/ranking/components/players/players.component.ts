@@ -14,6 +14,7 @@ import { faUsersCog } from '@fortawesome/free-solid-svg-icons';
 export class PlayersComponent implements OnInit {
 
   playerCogIcon = faUsersCog;
+  playerModalOn = false;
 
   allPlayers: Player[];
   player: Player;
