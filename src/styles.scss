@@ -4,3 +4,11 @@
 $navbar-breakpoint: 0px;
 
 @import "~bulma/bulma";
+
+.h23-centered {
+  justify-content: center;
+
+  & > * {
+    margin: 0 0.5em;
+  }
+}

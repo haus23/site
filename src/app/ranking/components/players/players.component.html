@@ -1,3 +1,29 @@
-<h2 class="subtitle has-text-centered">
-  Tipps von {{ player.name }}
-</h2>
+<div class="level h23-centered">
+  <div class="level-item is-narrow">
+    <h2 class="subtitle">Tipps von {{ player.name }}</h2>
+  </div>
+  <div class="level-item is-narrow">
+    <button class="button">
+      <fa-icon [icon]="playerCogIcon"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Spieler wählen</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <div class="menu">
+        <ul class="menu-list">
+          <li *ngFor="let p of allPlayers">
+            <a [routerLink]="['/tipprunde/spieler', p.slug]" [ngClass]="{ 'is-active': player.id === p.id }">{{ p.name }}</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>

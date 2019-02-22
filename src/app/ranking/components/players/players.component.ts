@@ -4,12 +4,18 @@ import { ActivatedRoute } from '@angular/router';
 import { Player } from '../../models/player';
 import { Round } from '../../models/round';
 
+import { faUsersCog } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'ranking-players',
-  templateUrl: './players.component.html'
+  templateUrl: './players.component.html',
+  styleUrls: ['./players.component.scss']
 })
 export class PlayersComponent implements OnInit {
 
+  playerCogIcon = faUsersCog;
+
+  allPlayers: Player[];
   player: Player;
   rounds: Round[];
 
@@ -23,6 +29,9 @@ export class PlayersComponent implements OnInit {
         this.player = this.appState.players.find( p => p.slug === params.slug );
       }
     });
+    this.allPlayers = this.appState.players.sort( (a,b) => {
+      return a.name.localeCompare(b.name);
+     });
     this.rounds = this.appState.rounds;
   }
 
