@@ -30,7 +30,7 @@ export class PlayersComponent implements OnInit {
         this.player = this.appState.players.find( p => p.slug === params.slug );
       }
     });
-    this.allPlayers = this.appState.players.sort( (a,b) => {
+    this.allPlayers = [...this.appState.players].sort( (a,b) => {
       return a.name.localeCompare(b.name);
      });
     this.rounds = this.appState.rounds;
