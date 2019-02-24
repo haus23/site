@@ -12,28 +12,29 @@ import { faUsersCog } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./players.component.scss']
 })
 export class PlayersComponent implements OnInit {
-
   playerCogIcon = faUsersCog;
   playerModalOn = false;
 
   allPlayers: Player[];
   player: Player;
-  rounds: Round[];
+  allRounds: Round[];
+  selectedRound: Round;
 
-  constructor(private appState: StateService, private route: ActivatedRoute) { }
+  constructor(private appState: StateService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe( (params: { slug?: string }) => {
+    this.route.params.subscribe((params: { slug?: string }) => {
       if (!params.slug) {
         this.player = this.appState.players[0];
       } else {
-        this.player = this.appState.players.find( p => p.slug === params.slug );
+        this.player = this.appState.players.find(p => p.slug === params.slug);
       }
     });
-    this.allPlayers = [...this.appState.players].sort( (a,b) => {
+    this.allPlayers = [...this.appState.players].sort((a, b) => {
       return a.name.localeCompare(b.name);
-     });
-    this.rounds = this.appState.rounds;
-  }
+    });
 
+    this.allRounds = this.appState.rounds;
+    this.selectedRound = this.allRounds.slice(-1)[0];
+  }
 }

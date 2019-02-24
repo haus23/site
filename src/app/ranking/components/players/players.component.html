@@ -9,6 +9,14 @@
   </div>
 </div>
 
+<div class="tabs is-centered" *ngIf="allRounds.length > 1">
+  <ul>
+    <li *ngFor="let r of allRounds"
+      [ngClass]="{ 'is-active': selectedRound === r }"
+    ><a (click)="selectedRound = r">Runde {{ r.nr }}</a></li>
+  </ul>
+</div>
+
 <div class="modal" [(appVisible)]="playerModalOn">
   <div class="modal-background"></div>
   <div class="modal-card">
@@ -20,7 +28,12 @@
       <div class="menu">
         <ul class="menu-list">
           <li *ngFor="let p of allPlayers">
-            <a (click)="playerModalOn = false" [routerLink]="['/tipprunde/spieler', p.slug]" [ngClass]="{ 'is-active': player.id === p.id }">{{ p.name }}</a>
+            <a
+              (click)="playerModalOn = false"
+              [routerLink]="['/tipprunde/spieler', p.slug]"
+              [ngClass]="{ 'is-active': player.id === p.id }"
+              >{{ p.name }}</a
+            >
           </li>
         </ul>
       </div>
