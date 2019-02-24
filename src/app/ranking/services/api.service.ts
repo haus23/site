@@ -5,6 +5,7 @@ import { Championship } from '../models/championship';
 import { Player } from '../models/player';
 import { Round } from '../models/round';
 import { Match } from '../models/match';
+import { Tip } from '../models/tip';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,11 @@ export class ApiService {
 
   async getMatches(championshipId: number) {
     return this.http.get<Match[]>(this.baseUrl + 'matches/' + championshipId)
+      .toPromise();
+  }
+
+  async getTips(championshipId: number) {
+    return this.http.get<Tip[]>(this.baseUrl + 'tips/' + championshipId)
       .toPromise();
   }
 }
