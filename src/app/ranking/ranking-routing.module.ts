@@ -25,10 +25,6 @@ const routes: Routes = [
         component: MatchesComponent
       },
       {
-        path: 'spiele/runde/:nr',
-        component: MatchesComponent
-      },
-      {
         path: 'spieler',
         component: PlayersComponent
       },

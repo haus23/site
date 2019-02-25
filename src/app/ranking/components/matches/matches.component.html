@@ -1,40 +1,67 @@
+<div class="level h23-centered">
+  <div class="level-item">
+    <h2 class="subtitle has-text-centered">
+      Spielübersicht
+    </h2>
+  </div>
+</div>
+
+<div class="tabs is-centered is-hidden-tablet">
+    <ul>
+      <li *ngFor="let r of allRounds"
+        [ngClass]="{ 'is-active': selectedRound === r }"
+      ><a (click)="selectedRound = r">Runde {{ r.nr }}</a></li>
+    </ul>
+</div>
+
 <div class="columns">
   <div class="column is-one-quarter is-hidden-mobile">
-      <aside class="menu">
-          <p class="menu-label">
-            Runden
-          </p>
-          <ul class="menu-list">
-            <li *ngFor="let r of rounds">
-              <a
-                [ngClass]="{ 'is-active': r.nr == roundNr }"
-                [routerLink]="['/spiele/runde', r.nr]"
-              >
-                Runde {{ r.nr }}
-              </a>
-            </li>
-          </ul>
-      </aside>
+    <aside class="menu">
+      <p class="menu-label">
+        Runden
+      </p>
+      <ul class="menu-list">
+        <li *ngFor="let r of allRounds">
+          <a
+            [ngClass]="{ 'is-active': r == selectedRound }"
+            (click)="selectedRound = r"
+          >
+            Runde {{ r.nr }}
+          </a>
+        </li>
+      </ul>
+    </aside>
   </div>
   <div class="column">
     <table class="table is-fullwidth">
-      <thead>
+      <thead class="is-hidden-mobile">
         <tr>
-          <th>Datum</th>
-          <th>Liga</th>
+          <th class="is-hidden-mobile">Datum</th>
+          <th class="is-hidden-mobile">Liga</th>
           <th>Paarung</th>
           <th>Ergebnis</th>
-          <th>Punkte</th>
+          <th class="is-hidden-mobile">Punkte</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let m of matches">
-          <td>{{ m.matchDay | date:'dd.MM.yy' }}</td>
-          <td>{{ m.league }}</td>
-          <td>{{ m.fixture }}</td>
-          <td>{{ m.result }}</td>
-          <td>{{ m.points }}</td>
-        </tr>
+        <ng-container *ngFor="let m of matches">
+          <tr class="is-hidden-mobile">
+            <td>{{ m.matchDay | date: 'dd.MM.yy' }}</td>
+            <td>{{ m.league }}</td>
+            <td>{{ m.fixture }}</td>
+            <td>{{ m.result }}</td>
+            <td>{{ m.points }}</td>
+          </tr>
+          <tr class="is-hidden-tablet mobile-details-first">
+            <td colspan="2">{{ m.fixture }}</td>
+            <td class="has-text-right">{{ m.result }}</td>
+          </tr>
+          <tr class="is-hidden-tablet">
+            <td>{{ m.matchDay | date: 'dd.MM.yy' }}</td>
+            <td>{{ m.league }}</td>
+            <td class="has-text-right">Pkt: {{ m.points }}</td>
+          </tr>
+        </ng-container>
       </tbody>
     </table>
   </div>
