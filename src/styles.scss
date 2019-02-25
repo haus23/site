@@ -5,6 +5,10 @@ $navbar-breakpoint: 0px;
 
 @import "~bulma/bulma";
 
+main.section {
+  padding: 1rem 1.5em;
+}
+
 .h23-centered {
   justify-content: center;
   height: 36px;
@@ -14,4 +18,20 @@ $navbar-breakpoint: 0px;
     height: 36px;
     margin: 0 0.5em;
   }
+}
+
+.tabs-label {
+  color: #7a7a7a;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-right: 1em;
+}
+
+@media screen and (max-width: 360px) {
+
+  main.section {
+    padding: 1rem 1rem;
+  }
+
 }

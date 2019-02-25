@@ -6,12 +6,19 @@
   </div>
 </div>
 
-<div class="tabs is-centered is-hidden-tablet">
-    <ul>
-      <li *ngFor="let r of allRounds"
-        [ngClass]="{ 'is-active': selectedRound === r }"
-      ><a (click)="selectedRound = r">Runde {{ r.nr }}</a></li>
-    </ul>
+<div class="level is-mobile is-hidden-tablet h23-centered">
+  <div class="level-item">
+      <p class="tabs-label">Runden</p>
+        <div class="tabs is-centered">
+          <ul>
+            <li *ngFor="let r of allRounds"
+              [ngClass]="{ 'is-active': selectedRound === r }"
+            >
+              <a (click)="selectedRound = r">{{ r.nr }}</a>
+            </li>
+          </ul>
+      </div>
+  </div>
 </div>
 
 <div class="columns">
@@ -33,14 +40,14 @@
     </aside>
   </div>
   <div class="column">
-    <table class="table is-fullwidth">
+    <table class="table is-fullwidth is-narrow">
       <thead class="is-hidden-mobile">
         <tr>
-          <th class="is-hidden-mobile">Datum</th>
-          <th class="is-hidden-mobile">Liga</th>
+          <th>Datum</th>
+          <th>Liga</th>
           <th>Paarung</th>
           <th>Ergebnis</th>
-          <th class="is-hidden-mobile">Punkte</th>
+          <th>Punkte</th>
         </tr>
       </thead>
       <tbody>
@@ -53,13 +60,13 @@
             <td>{{ m.points }}</td>
           </tr>
           <tr class="is-hidden-tablet mobile-details-first">
-            <td colspan="2">{{ m.fixture }}</td>
+            <td colspan="4">{{ m.fixture }}</td>
             <td class="has-text-right">{{ m.result }}</td>
           </tr>
           <tr class="is-hidden-tablet">
-            <td>{{ m.matchDay | date: 'dd.MM.yy' }}</td>
+            <td colspan="2">{{ m.matchDay | date: 'dd.MM.yy' }}</td>
             <td>{{ m.league }}</td>
-            <td class="has-text-right">Pkt: {{ m.points }}</td>
+            <td colspan="2" class="has-text-right">Pkt: {{ m.points }}</td>
           </tr>
         </ng-container>
       </tbody>
