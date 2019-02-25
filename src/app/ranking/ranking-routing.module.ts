@@ -10,7 +10,7 @@ import { PlayersComponent } from './components/players/players.component';
 
 const routes: Routes = [
   {
-    path: 'tipprunde',
+    path: '',
     component: ShellComponent,
     resolve: {
       championship: ChampionshipResolver

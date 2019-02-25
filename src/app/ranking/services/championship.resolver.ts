@@ -12,7 +12,7 @@ export class ChampionshipResolver implements Resolve<Championship> {
   constructor(private api: ApiService, private appState: StateService) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Championship> {
-    
+
     const championships = await this.api.getChampionships();
 
     this.appState.championships = championships;

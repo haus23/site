@@ -30,7 +30,7 @@
           <li *ngFor="let p of allPlayers">
             <a
               (click)="playerModalOn = false"
-              [routerLink]="['/tipprunde/spieler', p.slug]"
+              [routerLink]="['/spieler', p.slug]"
               [ngClass]="{ 'is-active': player.id === p.id }"
               >{{ p.name }}</a
             >

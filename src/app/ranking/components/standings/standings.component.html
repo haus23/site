@@ -17,7 +17,7 @@
     <tr *ngFor="let r of standings; let ix = index">
       <td class="has-text-centered">{{ r.rank === ix + 1 ? r.rank : '' }}</td>
       <td>
-        <a [routerLink]="['spieler', r.slug]">{{ r.name }}</a>
+        <a [routerLink]="['/spieler', r.slug]">{{ r.name }}</a>
       </td>
       <td class="has-text-centered">{{ r.totalPoints }}</td>
     </tr>

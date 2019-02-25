@@ -1,5 +1,5 @@
 <div class="columns">
-  <div class="column is-one-quarter">
+  <div class="column is-one-quarter is-hidden-mobile">
       <aside class="menu">
           <p class="menu-label">
             Runden
@@ -8,7 +8,7 @@
             <li *ngFor="let r of rounds">
               <a
                 [ngClass]="{ 'is-active': r.nr == roundNr }"
-                [routerLink]="['/tipprunde/spiele/runde', r.nr]"
+                [routerLink]="['/spiele/runde', r.nr]"
               >
                 Runde {{ r.nr }}
               </a>
