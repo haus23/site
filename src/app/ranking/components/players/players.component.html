@@ -9,12 +9,20 @@
   </div>
 </div>
 
-<div class="tabs is-centered" *ngIf="allRounds.length > 1">
-  <ul>
-    <li *ngFor="let r of allRounds"
-      [ngClass]="{ 'is-active': selectedRound === r }"
-    ><a (click)="selectedRound = r">Runde {{ r.nr }}</a></li>
-  </ul>
+<div class="level is-mobile is-hidden-tablet h23-centered">
+  <div class="level-item">
+    <p class="tabs-label">Runde</p>
+    <div class="tabs is-centered">
+      <ul>
+        <li
+          *ngFor="let r of allRounds"
+          [ngClass]="{ 'is-active': selectedRound === r }"
+        >
+          <a (click)="selectedRound = r">{{ r.nr }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="modal" [(appVisible)]="playerModalOn">
