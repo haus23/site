@@ -14,14 +14,64 @@
     <p class="tabs-label">Runde</p>
     <div class="tabs is-centered">
       <ul>
-        <li
-          *ngFor="let r of allRounds"
-          [ngClass]="{ 'is-active': selectedRound === r }"
-        >
+        <li *ngFor="let r of allRounds" [ngClass]="{ 'is-active': selectedRound === r }">
           <a (click)="selectedRound = r">{{ r.nr }}</a>
         </li>
       </ul>
     </div>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-one-quarter is-hidden-mobile">
+    <aside class="menu">
+      <p class="menu-label">
+        Runden
+      </p>
+      <ul class="menu-list">
+        <li *ngFor="let r of allRounds">
+          <a [ngClass]="{ 'is-active': r == selectedRound }" (click)="selectedRound = r">
+            Runde {{ r.nr }}
+          </a>
+        </li>
+      </ul>
+    </aside>
+  </div>
+  <div class="column">
+    <table class="table is-fullwidth is-narrow">
+      <thead class="is-hidden-mobile">
+        <tr>
+          <th class="has-text-centered">Datum</th>
+          <th>Spiel</th>
+          <th class="has-text-centered">Ergebnis</th>
+          <th class="has-text-centered">Tipp</th>
+          <th class="has-text-centered">Punkte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let m of matches">
+          <tr class="is-hidden-mobile">
+            <td class="has-text-centered">{{ m.matchDay | date: 'dd.MM.yy' }}</td>
+            <td>{{ m.fixture }}</td>
+            <td class="has-text-centered">{{ m.result }}</td>
+            <td class="has-text-centered">{{ tips[m.id].result }}</td>
+            <td class="has-text-centered">{{ tips[m.id].points }}</td>
+          </tr>
+          <tr class="is-hidden-tablet mobile-details-first">
+            <td colspan="5">
+              <a href="#">{{ m.fixture }}</a>
+            </td>
+          </tr>
+          <tr class="is-hidden-tablet">
+            <td colspan="2">Ergebnis: {{ m.result }}</td>
+            <td colspan="2">Tipp: {{ tips[m.id].result }}</td>
+            <td  class="has-text-right">
+              Pkt: {{ tips[m.id].points }}
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -36,12 +86,8 @@
       <div class="menu">
         <ul class="menu-list">
           <li *ngFor="let p of allPlayers">
-            <a
-              (click)="playerModalOn = false"
-              [routerLink]="['/spieler', p.slug]"
-              [ngClass]="{ 'is-active': player.id === p.id }"
-              >{{ p.name }}</a
-            >
+            <a (click)="playerModalOn = false" [routerLink]="['/spieler', p.slug]"
+              [ngClass]="{ 'is-active': player.id === p.id }">{{ p.name }}</a>
           </li>
         </ul>
       </div>

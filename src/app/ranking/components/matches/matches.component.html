@@ -43,21 +43,21 @@
     <table class="table is-fullwidth is-narrow">
       <thead class="is-hidden-mobile">
         <tr>
-          <th>Datum</th>
+          <th class="has-text-centered">Datum</th>
           <th>Liga</th>
           <th>Paarung</th>
-          <th>Ergebnis</th>
-          <th>Punkte</th>
+          <th class="has-text-centered">Ergebnis</th>
+          <th class="has-text-centered">Punkte</th>
         </tr>
       </thead>
       <tbody>
         <ng-container *ngFor="let m of matches">
           <tr class="is-hidden-mobile">
-            <td>{{ m.matchDay | date: 'dd.MM.yy' }}</td>
+            <td class="has-text-centered">{{ m.matchDay | date: 'dd.MM.yy' }}</td>
             <td>{{ m.league }}</td>
             <td>{{ m.fixture }}</td>
-            <td>{{ m.result }}</td>
-            <td>{{ m.points }}</td>
+            <td class="has-text-centered">{{ m.result }}</td>
+            <td class="has-text-centered">{{ m.points }}</td>
           </tr>
           <tr class="is-hidden-tablet mobile-details-first">
             <td colspan="5">
