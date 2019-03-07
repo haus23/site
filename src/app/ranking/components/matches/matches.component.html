@@ -60,13 +60,16 @@
             <td>{{ m.points }}</td>
           </tr>
           <tr class="is-hidden-tablet mobile-details-first">
-            <td colspan="4">{{ m.fixture }}</td>
-            <td class="has-text-right">{{ m.result }}</td>
+            <td colspan="5">
+              <a href="#">{{ m.fixture }}</a>
+            </td>
           </tr>
           <tr class="is-hidden-tablet">
             <td colspan="2">{{ m.matchDay | date: 'dd.MM.yy' }}</td>
-            <td>{{ m.league }}</td>
-            <td colspan="2" class="has-text-right">Pkt: {{ m.points }}</td>
+            <td class="has-text-centered">{{ m.result }}</td>
+            <td colspan="2" class="has-text-right" [ngClass]="{ 'is-invisible': !m.result }">
+              Pkt: {{ m.points }}
+            </td>
           </tr>
         </ng-container>
       </tbody>
