@@ -9,15 +9,13 @@ import { StateService } from './state.service';
 })
 export class ChampionshipResolver implements Resolve<Championship> {
 
-  constructor(private api: ApiService, private appState: StateService) {}
+  constructor(private appState: StateService) {}
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Championship> {
 
-    const championships = await this.api.getChampionships();
-
-    this.appState.championships = championships;
-
+    const championships = await this.appState.loadChampionshipList();
     const last = championships[0];
-    return this.appState.loadChampionship(last);
+    return this.appState.loadChampionshipData(last);
+
   }
 }

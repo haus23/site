@@ -21,7 +21,12 @@ export class StateService {
 
   constructor(private api: ApiService) {}
 
-  async loadChampionship(c: Championship) {
+  async loadChampionshipList() {
+    this.championships = await this.api.getChampionships();
+    return this.championships;
+  }
+
+  async loadChampionshipData(c: Championship) {
 
    this.currentChampionship = c;
 
