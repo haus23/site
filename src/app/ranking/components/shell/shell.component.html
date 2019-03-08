@@ -24,7 +24,7 @@
     </div>
   </div>
 </nav>
-<main class="section">
+<main class="section" (swipeleft)="onSwipeLeft($event)">
   <nav class="secondary tabs is-centered is-fullwidth">
     <ul>
       <li routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">
