@@ -6,3 +6,20 @@
   flex-grow: 1;
   justify-content: center;
 }
+
+.notification {
+  padding: 0;
+  overflow-y: hidden;
+  max-height: 0;
+
+  transition: max-height .5s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.notification.is-visible {
+  padding: 1.25rem 1.5rem;
+  max-height: 100px;
+}
+
+.notification a {
+  margin-left: 1em;
+}
