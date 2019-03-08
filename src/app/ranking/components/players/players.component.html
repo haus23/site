@@ -52,14 +52,16 @@
         <ng-container *ngFor="let m of matches">
           <tr class="is-hidden-mobile">
             <td class="has-text-centered">{{ m.matchDay | date: 'dd.MM.yy' }}</td>
-            <td>{{ m.fixture }}</td>
+            <td>
+              <a [routerLink]="['/', 'tipps',m.id]">{{ m.fixture }}</a>
+            </td>
             <td class="has-text-centered">{{ m.result }}</td>
             <td class="has-text-centered">{{ tips[m.id].result }}</td>
             <td class="has-text-centered">{{ tips[m.id].points }}</td>
           </tr>
           <tr class="is-hidden-tablet mobile-details-first">
             <td colspan="5">
-              <a href="#">{{ m.fixture }}</a>
+              <a [routerLink]="['/', 'tipps',m.id]">{{ m.fixture }}</a>
             </td>
           </tr>
           <tr class="is-hidden-tablet">

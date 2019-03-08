@@ -7,6 +7,7 @@ import { ShellComponent } from './components/shell/shell.component';
 import { StandingsComponent } from './components/standings/standings.component';
 import { MatchesComponent } from './components/matches/matches.component';
 import { PlayersComponent } from './components/players/players.component';
+import { TipsComponent } from './components/tips/tips.component';
 
 const routes: Routes = [
   {
@@ -16,22 +17,10 @@ const routes: Routes = [
       championship: ChampionshipResolver
     },
     children: [
-      {
-        path: '',
-        component: StandingsComponent
-      },
-      {
-        path: 'spiele',
-        component: MatchesComponent
-      },
-      {
-        path: 'spieler',
-        component: PlayersComponent
-      },
-      {
-        path: 'spieler/:slug',
-        component: PlayersComponent
-      }
+      { path: '', component: StandingsComponent },
+      { path: 'spiele', component: MatchesComponent },
+      { path: 'spieler/:slug', component: PlayersComponent },
+      { path: 'tipps/:matchId', component: TipsComponent }
     ]
   }
 ];
