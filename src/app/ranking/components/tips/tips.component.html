@@ -5,3 +5,20 @@
     </h2>
   </div>
 </div>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Spieler</th>
+      <th class="has-text-centered">Tipp</th>
+      <th class="has-text-centered">Punkte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of tips">
+      <td>{{ players[t.playerId].name }}</td>
+      <td class="has-text-centered">{{ t.result }}</td>
+      <td class="has-text-centered">{{ t.points }}</td>
+    </tr>
+  </tbody>
+</table>
