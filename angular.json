@@ -141,6 +141,6 @@
   },
   "defaultProject": "site",
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "npm"
   }
 }
