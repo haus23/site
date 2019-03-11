@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { NgModule } from '@angular/core';
 
@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RankingModule } from './ranking/ranking.module';
 import { SharedModule } from './shared/shared.module';
 import { environment } from '../environments/environment';
+import { HammerConfig } from './hammer.config';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { environment } from '../environments/environment';
     RankingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: HAMMER_GESTURE_CONFIG, useClass: HammerConfig }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
