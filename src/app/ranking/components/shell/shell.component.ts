@@ -4,7 +4,6 @@ import { Championship } from '../../models/championship';
 
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { SwUpdate } from '@angular/service-worker';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'ranking-shell',
@@ -18,7 +17,10 @@ export class ShellComponent implements OnInit {
 
   championship: Championship;
 
-  constructor(private state: StateService, private updates: SwUpdate, private location: Location ) {
+  constructor(
+    private state: StateService,
+    private updates: SwUpdate,
+  ) {
     updates.available.subscribe( ev => {
       this.alertVisible = true;
     });
@@ -31,9 +33,5 @@ export class ShellComponent implements OnInit {
 
   update() {
     this.updates.activateUpdate().then(() => document.location.reload());
-  }
-
-  onSwipeLeft() {
-    this.location.back();
   }
 }
